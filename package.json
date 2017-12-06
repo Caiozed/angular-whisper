@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": "",
+  "author": "",
+  "dependencies": {
+    "async": "~0.2.8",
+    "body-parser": "^1.18.2",
+    "express": "~3.2.4",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}
