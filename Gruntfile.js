@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: ['client/js/jquery.min.js', 'client/js/*.js', 'client/js/master.js'],
+        src: ['client/js/jquery.min.js', 'client/js/popper.js', 'client/js/*.js', 'client/js/master.js'],
         dest: 'client/js/production/production.js'
       }
     },

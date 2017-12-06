@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/production/production.css">
   </head>
-  <body ng-app="whisper" >
-    <div ng-controller="index">
-      <h1>{{name}}</h1>
+  <body ng-app="whisper">
+    <div ng-controller="index" class="container">
+      <input type="text" name="confession" ng-model="confession"/>
+      <button class="btn btn-outline-primary">Send</button>
+      <h1>{{confession}}</h1>
     </div>
     <script src="js/production/production.min.js"></script>
   </body>
