@@ -16,13 +16,27 @@ module.exports = function(grunt) {
       }
     },
     
-    uglify: {
-        my_target: {
-          files: {
-            'client/js/production/production.min.js': ['client/js/jquery.min.js', 'client/js/*.js', 'client/js/master.js']
-          }
-        }
+    concat: {
+      options: {
+        separator: ';',
       },
+      dist: {
+        src: ['client/js/jquery.min.js', 'client/js/*.js', 'client/js/master.js'],
+        dest: 'client/js/production/production.js'
+      }
+    },
+    
+    uglify: {
+      options: {
+        mangle: false
+      },
+      
+      my_target: {
+        files: {
+          'client/js/production/production.min.js': 'client/js/production/production.js'
+        }
+      }
+    },
       
     sass: {                              // Task
         dist: {                            // Target
@@ -30,17 +44,17 @@ module.exports = function(grunt) {
             style: 'expanded'
           },
           files: {                         // Dictionary of files
-            'client/css/main.css': 'client/css/*.scss'      // 'destination': 'source'
+            'client/css/main.css': 'client/css/scss/*.scss'      // 'destination': 'source'
           }
         }
     },
     
     watch: {
       scripts: {
-        files: ['client/js/*.js', 'client/css/*.css', 'client/css/*.scss'],
-        tasks: ['uglify', 'sass', 'cssmin'],
+        files: ['client/js/master.js', 'client/css/scss/main.scss'],
+        tasks: ['concat', 'uglify', 'sass', 'cssmin'],
         options: {
-          interrupt: true,
+          interrupt: true
         }
       }
     }
@@ -48,6 +62,7 @@ module.exports = function(grunt) {
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
