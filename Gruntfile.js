@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     uglify: {
         my_target: {
           files: {
-            'client/js/production/production.min.js': ['client/js/jquery.min.js', 'client/js/*.js']
+            'client/js/production/production.min.js': ['client/js/jquery.min.js', 'client/js/*.js', 'client/js/master.js']
           }
         }
       },
