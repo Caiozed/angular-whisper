@@ -1,0 +1,17 @@
+.textarea{
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    div{
+        padding: 0 70px;
+        width: 100%;
+        min-height: 50px;
+        border: 1px dashed cyan;
+        border-radius: 5px;
+    }
+    button{
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
+}

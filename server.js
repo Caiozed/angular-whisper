@@ -16,6 +16,30 @@ app.use(express.static(path.resolve(__dirname, 'client')));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
+
+app.post("/new/confession", function(req, res){
+  var confessions = req.body.confession;
+  var query = "INSERT INTO confessions(message) VALUES (?)";
+  con.query(query, confessions, function(err, results, fields){
+    if(err){
+      res.json({status: 400, msg: "Something wrong"});
+    }else{
+      res.json({status: 200, msg: "Confession added"});
+    }
+  });
+});
+
+app.get("/confessions", function(req, res){
+  var query = "SELECT * FROM confessions";
+  con.query(query, function(err, results, fields){
+    if(err){
+      res.json({status: 400, msg: "Something wrong"});
+    }else{
+      res.json({status: 200, results: results});
+    }
+  });
+});
+
 app.listen(process.env.PORT, process.env.IP, function(){
   console.log("Chat server listening at", process.env.IP + ":" + process.env.PORT);
 });
