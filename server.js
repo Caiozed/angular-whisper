@@ -12,7 +12,7 @@ var con = mysql.createConnection({
   database: "c9"
 });
 
-app.use(express.static(path.resolve(__dirname, 'client')));
+app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.urlencoded({ extended: true}));
 app.use(bodyParser.json());
 
@@ -32,6 +32,18 @@ app.post("/new/confession", function(req, res){
 app.get("/confessions", function(req, res){
   var query = "SELECT * FROM confessions";
   con.query(query, function(err, results, fields){
+    if(err){
+      res.json({status: 400, msg: "Something wrong"});
+    }else{
+      res.json({status: 200, results: results});
+    }
+  });
+});
+
+app.get("/confessions/:page", function(req, res){
+  var page = req.params.page;
+  var query = "SELECT * FROM confessions OFFSET ? LIMIT ?";
+  con.query(query, [page, page], function(err, results, fields){
     if(err){
       res.json({status: 400, msg: "Something wrong"});
     }else{

@@ -7,15 +7,24 @@
   </head>
   <body ng-app="whisper">
     <div ng-controller="index" class="container" ng-init="getConfessions()">
+      <div id="particles-js"></div>
       <div class="error-handling"></div>
       <section class="textarea">
         <div name="confession" ng-model="confession"  contenteditable/></div>
-        <button ng-click="addConfession()" class="btn btn-outline-primary">Send</button>
+        <button ng-click="addConfession()" class="btn btn-primary">Send</button>
       </section>
       <section>
-        <ul>
-          <li ng-repeat="x in confessions">{{x.message}}</li>
-        </ul>
+        <div class="row">
+           <ul class="col-8">
+            <li ng-repeat="x in confessions" class="message">
+              <h1>I confess that!...</h1>
+              <p>{{x.message}}</p>
+            </li>
+          </ul>
+          <ul class="col-4">
+            
+          </ul>
+        </div>
       </section>
     </div>
     <script src="js/production/production.min.js"></script>
