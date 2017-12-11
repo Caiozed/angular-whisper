@@ -1,10 +1,10 @@
 {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 40,
       "density": {
         "enable": true,
-        "value_area": 800
+        "value_area": 91
       }
     },
     "color": {
@@ -72,7 +72,7 @@
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "none"
       },
       "onclick": {
         "enable": true,

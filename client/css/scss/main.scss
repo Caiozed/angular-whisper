@@ -26,7 +26,6 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background: grey;
 }
 ol, ul {
 	list-style: none;
@@ -50,6 +49,7 @@ table {
 
 html {
     height: 100%;
+    font-family: "Indie Flower";
 }
 
 body{
@@ -62,22 +62,48 @@ body{
     background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,76,158,1) 100%) fixed;
 }
 
+.title{
+    font-size: 55px;
+    color: white;
+    &:hover{
+      color: #bcbcbc;  
+      text-decoration: none;
+    }
+}
+
+nav{
+    position: relative;
+    padding: 20px;
+    background: #7933ff;
+}
+
+
+.soft-purple{
+    background: #6028cc;
+    padding: 10px 0;
+}
+
 .textarea{
     position: relative;
     margin: 0 auto;
     width: 500px;
     div{
+        transition: all 0.5s;
         font-size: 30px;
-        padding: 0 70px;
-        width: 100%;
+        padding: 15px 70px;
+        max-width: 100%;
         min-height: 50px;
         border: 1px dashed cyan;
-        border-radius: 5px;
+        border-radius: 200px;
+        background: white;
         color: #3399ff;
+        &:focus, &:hover{
+             border-radius: 5px;
+        }
     }
     button{
         position: absolute;
-        right: 5px;
+        right: 7px;
         bottom: 5px;
     }
 }
@@ -111,13 +137,12 @@ body{
 }
 
 #particles-js canvas{
-    position: fixed;
+    position: absolute;
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1;
 }
 

@@ -4,20 +4,34 @@
     <title>Angular Whisper</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/production/production.css">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   </head>
   <body ng-app="whisper">
-    <div ng-controller="index" class="container" ng-init="getConfessions()">
-      <div id="particles-js"></div>
-      <div class="error-handling"></div>
-      <section class="textarea">
-        <div name="confession" ng-model="confession"  contenteditable/></div>
-        <button ng-click="addConfession()" class="btn btn-primary">Send</button>
+   <header>
+      <nav>
+        <div id="particles-js"></div>
+        <ul class="nav navbar nav-custom">
+          <li></li>
+          <li><a href="/" class="title">Whisper²</a></li>
+          <li></li>
+        </ul>
+      </nav>
+      <section class="soft-purple">
+        <div class="textarea" tabindex="1">
+          <div name="confession" ng-model="confession"  contenteditable/>Write something!</div>
+          <button ng-click="addConfession()" class="btn btn-primary">Send</button>
+        </div>
       </section>
+    </header>
+   
+    
+    <div ng-controller="index" class="container" ng-init="getConfessions()">
+      <div class="error-handling"></div>
       <section>
         <div class="row">
-           <ul class="col-8">
+           <ul class="col-12">
             <li ng-repeat="x in confessions" class="message">
-              <h1>I confess that!...</h1>
+              <h1>I confess that...</h1>
               <p>{{x.message}}</p>
             </li>
           </ul>
