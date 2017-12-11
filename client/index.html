@@ -7,7 +7,8 @@
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   </head>
   <body ng-app="whisper">
-   <header>
+    <div ng-controller="index" ng-init="getConfessions()">
+      <header>
       <nav>
         <div id="particles-js"></div>
         <ul class="nav navbar nav-custom">
@@ -18,29 +19,28 @@
       </nav>
       <section class="soft-purple">
         <div class="textarea" tabindex="1">
-          <div name="confession" ng-model="confession"  contenteditable/>Write something!</div>
+          <div name="confession" ng-model="confession"  contenteditable/>Share something!</div>
           <button ng-click="addConfession()" class="btn btn-primary">Send</button>
         </div>
       </section>
-    </header>
-   
-    
-    <div ng-controller="index" class="container" ng-init="getConfessions()">
-      <div class="error-handling"></div>
-      <section>
-        <div class="row">
-           <ul class="col-12">
-            <li ng-repeat="x in confessions" class="message">
-              <h1>I confess that...</h1>
-              <p>{{x.message}}</p>
-            </li>
-          </ul>
-          <ul class="col-4">
-            
-          </ul>
+      </header>
+      <section class="container">
+        <div class="error-handling"></div>
+          <section>
+            <div class="row">
+               <ul class="col-12">
+                <li ng-repeat="x in confessions" class="message">
+                  <h1>I confess that...</h1>
+                  <p>{{x.message}}</p>
+                </li>
+              </ul>
+              <ul class="col-4">
+                
+              </ul>
+            </div>
+          </section>
         </div>
       </section>
-    </div>
     <script src="js/production/production.min.js"></script>
   </body>
 </html>

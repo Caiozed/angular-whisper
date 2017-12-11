@@ -42,7 +42,7 @@ app.post("/new/confession", function(req, res){
 });
 
 app.get("/confessions", function(req, res){
-  var query = "SELECT * FROM confessions";
+  var query = "SELECT * FROM confessions ORDER BY id DESC";
   con.query(query, function(err, results, fields){
     if(err){
       res.json({status: 400, msg: "Something wrong"});
